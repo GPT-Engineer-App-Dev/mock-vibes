@@ -1,15 +1,28 @@
-// Complete the Index page component here
-// Use chakra-ui
-import { Button } from "@chakra-ui/react"; // example
-import { FaPlus } from "react-icons/fa"; // example - use react-icons/fa for icons
+import { Button, Grid, GridItem, Heading, Text } from "@chakra-ui/react";
+import { useState } from "react";
 
 const Index = () => {
-  // TODO: Create the website here!
+  const [turn, setTurn] = useState("X");
+
   return (
-    <Button>
-      Hello world! <FaPlus />
-    </Button>
-  ); // example
+    <>
+      <Heading textAlign="center" mb={4}>
+        Tic-Tac-Toe
+      </Heading>
+      <Grid templateColumns="repeat(3, 1fr)" gap={2} maxW="240px" mx="auto">
+        {[...Array(9)].map((_, index) => (
+          <GridItem key={index}>
+            <Button w="100%" h="80px">
+              {}
+            </Button>
+          </GridItem>
+        ))}
+      </Grid>
+      <Text textAlign="center" mt={4}>
+        {turn}'s turn
+      </Text>
+    </>
+  );
 };
 
 export default Index;
